@@ -21,6 +21,7 @@ const WeatherApp = () => {
       const data = await response.json();
       setWeatherData(data);
     } catch (error) {
+      setError('Failed to fetch weather data');
       alert('Failed to fetch weather data');
     } finally {
       setLoading(false);
@@ -45,7 +46,7 @@ const WeatherApp = () => {
         />
         <button onClick={handleSearch}>Search</button>
       </div>
-      {loading && <p>Loading data…</p>}
+      {loading && <p>Loading data...</p>}
       {error && <p>{error}</p>}
       {weatherData && (
         <div className="weather-cards">
